@@ -13,9 +13,9 @@ build_search_index = true
 minify_html = true
 
 taxonomies = [
-    { name = "projects", paginate_by = 5, feed = true },
-    { name = "skills", paginate_by = 5, feed = true },
-    { name = "blog-tags", paginate_by = 5, feed = true },
+    { name = "projects", paginate_by = 5, feed = false },
+    { name = "skills", paginate_by = 5, feed = false },
+    { name = "blog-tags", paginate_by = 5, feed = false },
 ]
 
 [search]
@@ -28,9 +28,9 @@ title = "Projekt-Portfolio"
 description = "Beispiel- und Demoseite des Projekt-Portfolio-Themas für Zola."
 build_search_index = true
 taxonomies = [
-    { name = "projects", paginate_by = 5, feed = true },
-    { name = "skills", paginate_by = 5, feed = true },
-    { name = "blog-tags", paginated_by = 5, feed = true },
+    { name = "projects", paginate_by = 5, feed = false },
+    { name = "skills", paginate_by = 5, feed = false },
+    { name = "blog-tags", paginated_by = 5, feed = false },
 ]
 
 [extra]
