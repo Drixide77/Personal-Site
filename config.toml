@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://drixide77.github.io/ZolaSiteTest"
+base_url = "https://drixide77.github.io/MySite/"
 
 theme = "project-portfolio"
 
