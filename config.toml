@@ -1,0 +1,71 @@
+# The URL the site will be built for
+base_url = "https://drixide77.github.io/ZolaSiteTest"
+
+theme = "project-portfolio"
+
+title = "Drixide's HQ"
+description = "My personal portfolio site."
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+# When set to true, the generated HTML files are minified
+minify_html = true
+
+taxonomies = [
+    { name = "projects", paginate_by = 5, feed = true },
+    { name = "skills", paginate_by = 5, feed = true },
+    { name = "blog-tags", paginate_by = 5, feed = true },
+]
+
+[search]
+index_format = "elasticlunr_json"
+
+default_language = "en"
+
+[languages.de]
+title = "Projekt-Portfolio"
+description = "Beispiel- und Demoseite des Projekt-Portfolio-Themas für Zola."
+build_search_index = true
+generate_feeds = true
+taxonomies = [
+    { name = "projects", paginate_by = 5, feed = true },
+    { name = "skills", paginate_by = 5, feed = true },
+    { name = "blog-tags", paginated_by = 5, feed = true },
+]
+
+[extra]
+enable_theme_switching = false
+
+[extra.navbar]
+links = [
+    { url = "projects", i18n_key = "projects" },
+    { url = "skills", i18n_key = "skills" },
+    { url = "blog", i18n_key = "blog" },
+]
+
+[extra.footer]
+notice = 'Adrià Abella Gassol</a><br>Powered by <a href="https://getzola.org">Zola</a> & <a href="https://github.com/awinterstein/zola-theme-project-portfolio">Project-Portfolio</a>'
+
+[extra.index]
+slogan = "Whitty quote goes here."
+image = "portrait.png"
+image_alt = "Avatar image."
+
+[extra.social]
+#codeberg = "https://codeberg.org/johndoe"
+github = "https://github.com/Drixide77"
+#gitlab = "https://gitlab.com/johndoe"
+#twitter = "https://twitter.com/johndoe"
+#mastodon = "https://social.somewhere.com/users/johndoe"
+linkedin = "https://www.linkedin.com/in/adriaabellagassol/"
+#stackoverflow = "https://stackoverflow.com/users/01234567/johndoe"
+#telegram = "https://t.me/johndoe"
+email = "adria.abella.93@gmail.com"
+
+highlight_code = true
+highlight_theme = "css"
+highlight_themes_css = [
+  { theme = "ayu-dark", filename = "syntax-dark.css" },
+  { theme = "ayu-light", filename = "syntax-light.css" },
+]

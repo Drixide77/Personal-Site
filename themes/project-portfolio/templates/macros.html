@@ -1,0 +1,115 @@
+<!-- Shows a list of all given terms of a taxonomy. An icon is shown in front of each term. This icon needs to be given as a name of a Bootstrap icon. -->
+{% macro terms_list(terms, icon, maximum_amount='', minimum_amount='', icons) %}
+<div class="flex flex-wrap justify-center flex-row gap-x-7 gap-y-5 mt-6 mb-6">
+    {% for term in terms %}
+    {# Show term only if its item count is between minimum and maximum amount (if those parameters are given) #}
+    {% if (not minimum_amount or term.pages | length >= minimum_amount) and (not maximum_amount or term.pages | length
+    <= maximum_amount) %} <span class="text-bold flex items-center space-x-1">
+        {{ content::icon(id=icon, icons=icons) }}<a href="{{ term.permalink | safe }}" class="no-underline hover:underline">
+        {{ term.name }}
+        </a><sup>{{ term.pages | length }}</sup></span>
+        {% endif %}
+        {% endfor %}
+</div>
+{% endmacro %}
+
+<!-- Shows a list of all given terms of a taxonomy with the projects terms icon in front of each term. -->
+{% macro terms_list_projects(terms, icons) %}
+{{ macros::terms_list(terms=terms, icon="inboxes", icons=icons) }}
+{% endmacro %}
+
+<!-- Shows a list of all given terms of a taxonomy with the skills terms icon in front of each term. -->
+{% macro terms_list_skills(terms, maximum_amount='', minimum_amount='', icons) %}
+{{ macros::terms_list(terms=terms, maximum_amount=maximum_amount, minimum_amount=minimum_amount, icon="tag", icons=icons) }}
+{% endmacro %}
+
+<!-- Shows a list of all given terms of a taxonomy with the tags terms icon in front of each term. -->
+{% macro terms_list_blog_tags(terms, icons) %}
+{{ macros::terms_list(terms=terms, icon="tag", icons=icons) }}
+{% endmacro %}
+
+<!-- Shows a list of all given terms with at least 'threshold' items of a taxonomy with the skills terms icon in front of each term. -->
+{% macro terms_list_skills_main(terms, threshold, icons) %}
+{{ macros::terms_list_skills(terms=terms, minimum_amount=threshold, icons=icons) }}
+{% endmacro %}
+
+<!-- Shows a list of all given terms with less than 'threshold' items of a taxonomy with the skills terms icon in front of each term. -->
+{% macro terms_list_skills_other(terms, threshold, icons) %}
+{{ macros::terms_list_skills(terms=terms, maximum_amount=threshold-1, icons=icons) }}
+{% endmacro %}
+
+{% macro list_taxonomy_elements(kind, elements, lang, icons) %}
+{% for element in elements %}
+<div class="py-1">
+    {{ content::icon(id="tag", icons=icons) }}
+    <a class="items-center no-underline hover:underline" href="{{ get_taxonomy_url(kind=kind, name=element, lang=lang) }}">
+        <span class="">{{ element }}</span>
+</a>
+</div>
+{% endfor %}
+{% endmacro %}
+
+<!-- Shows the given skills that are part of a project. -->
+{% macro project_list_skills(skills, lang, icons) %}
+<div class="flex flex-row flex-wrap gap-x-7">
+    {{ macros::list_taxonomy_elements(kind='skills', elements=skills, lang=lang, icons=icons) }}
+</div>
+{% endmacro %}
+
+<!-- Shows the overview tile for a project page. -->
+{% macro project_tile(page, i18n, icons) %}
+<div
+    class="border border-2 border-base-300 rounded-xl p-5 shadow-2xl transform transition duration-500 hover:scale-105 bg-base-200">
+    <div class="flex flex-col justify-center">
+        <h2 class="text-2xl text-bold pt-0"><a href='{{ page.permalink }}' class="no-underline">{{ page.title }}</a></h2>
+
+        <!-- Project type and date -->
+        {% if page.extra.date_start %}
+        <div class="flex flex-wrap space-x-6 pl-1">
+            {% if page.taxonomies.projects %}
+            <span class="flex items-center whitespace-nowrap">
+                {% for project in page.taxonomies.projects %}
+                {{ content::icon(id="inboxes", icons=icons) }}
+                <a class="py-1 items-center no-underline hover:underline" href="{{ get_taxonomy_url(kind='projects', name=project, lang=lang) }}">
+                    {{project}}
+                </a>
+                {% endfor %}
+            </span>
+            {% endif -%}
+
+            <span class="flex items-center whitespace-nowrap">
+                {{ content::icon(id="calendar_range", icons=icons) }}
+                <span><time datetime="{{ page.date }}">{% if page.extra.date_start |
+                        date(format='%Y') != page.date |
+                        date(format='%Y') %}{{
+                        page.extra.date_start | date(format='%Y') }} - {{ page.date | date(format='%Y')
+                        }}{% else %}{{ page.date | date(format='%Y') }}{% endif %}</time></span>
+            </span>
+        </div>
+        {% endif %}
+
+        <span>
+            {% if page.extra.image %}
+            <img class="h-auto w-48 rounded-lg lg:float-right lg:ml-4 my-1"
+                src="{{ content::base_path() }}images/{{page.extra.image}}" />
+            {% endif %}
+            <p class="text-bold mt-2">{{ page.description | safe }}</p>
+
+            <!-- Read more link -->
+            <div class="flex items-center w-1/3 mb-2">
+                <a href='{{ page.permalink }}' class="no-underline">
+                    {{ i18n.read_more }}
+                    {{ content::icon(id="arrow_right", class="ml-2 h-5 w-5", icons=icons) }}
+                </a>
+            </div>
+
+            <!-- Skills & Technologies Section -->
+            {% if page.taxonomies.skills %}
+            <h3>{{ i18n.skills_technologies }}</h3>
+            {{ macros::project_list_skills(skills=page.taxonomies.skills, lang=lang, icons=icons) }}
+            {% endif %}
+
+        </span>
+    </div>
+</div>
+{% endmacro %}
