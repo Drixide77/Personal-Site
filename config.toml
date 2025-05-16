@@ -44,7 +44,7 @@ links = [
 ]
 
 [extra.footer]
-notice = 'Adrià Abella Gassol</a><br>Powered by <a href="https://getzola.org">Zola</a> & <a href="https://github.com/awinterstein/zola-theme-project-portfolio">Project-Portfolio</a>'
+notice = 'Adrià Abella Gassol</a><br>Powered by <a href="https://getzola.org">Zola</a> & <a href="https://github.com/awinterstein/zola-theme-project-portfolio">Project Portfolio</a>'
 
 [extra.index]
 slogan = "Whitty quote goes here."
