@@ -39,13 +39,13 @@ links = [
 notice = 'Adrià Abella Gassol</a><br>Powered by <a href="https://getzola.org">Zola</a> & <a href="https://github.com/awinterstein/zola-theme-project-portfolio">Project Portfolio</a>'
 
 [extra.favicon]
-favicon = "/icons/favicon.ico"
-favicon_16x16 = "/icons/favicon-16x16.png"
-favicon_32x32 = "/icons/favicon-32x32.png"
-apple_touch_icon = "/icons/apple-touch-icon.png"
-android_chrome_512 = "/icons/android-chrome-512x512.png"
-android_chrome_192 = "/icons/android-chrome-192x192.png"
-manifest = "/icons/site.webmanifest"
+favicon = "favicon.ico"
+favicon_16x16 = "favicon-16x16.png"
+favicon_32x32 = "favicon-32x32.png"
+apple_touch_icon = "apple-touch-icon.png"
+android_chrome_512 = "android-chrome-512x512.png"
+android_chrome_192 = "android-chrome-192x192.png"
+manifest = "site.webmanifest"
 
 [extra.index]
 slogan = "\"We make games here, sorta\""
