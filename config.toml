@@ -23,16 +23,6 @@ index_format = "elasticlunr_json"
 
 default_language = "en"
 
-[languages.de]
-title = "Projekt-Portfolio"
-description = "Beispiel- und Demoseite des Projekt-Portfolio-Themas für Zola."
-build_search_index = true
-taxonomies = [
-    { name = "projects", paginate_by = 5, feed = false },
-    { name = "skills", paginate_by = 5, feed = false },
-    { name = "blog-tags", paginated_by = 5, feed = false },
-]
-
 [extra]
 enable_theme_switching = false
 
@@ -47,7 +37,7 @@ links = [
 notice = 'Adrià Abella Gassol</a><br>Powered by <a href="https://getzola.org">Zola</a> & <a href="https://github.com/awinterstein/zola-theme-project-portfolio">Project Portfolio</a>'
 
 [extra.index]
-slogan = "Whitty quote goes here."
+slogan = "We make games here (sorta)"
 image = "portrait.png"
 image_alt = "Avatar image."
 
