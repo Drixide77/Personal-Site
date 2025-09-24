@@ -14,7 +14,7 @@ I also enjoy dabbling in *game design*.
 
 You can find links to some of [**my projects**](@/projects/_index.md) on the top menu (burger menu on mobile!).
 
-You can also find my [**CV here**](/cv.pdf).
+You can also find my [**CV here**](/Personal-Site/cv.pdf).
 
 And you can find links to my socials down below.
 
