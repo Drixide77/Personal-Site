@@ -48,7 +48,7 @@ android_chrome_192 = "android-chrome-192x192.png"
 manifest = "site.webmanifest"
 
 [extra.index]
-slogan = "\"We make games here, sorta\""
+slogan = "\"Where the magic happens\""
 image = "portrait.png"
 image_alt = "Avatar image."
 
