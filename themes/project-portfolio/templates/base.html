@@ -28,6 +28,10 @@
     <!-- favicon -->
     {% if config.extra.favicon.svg %}<link rel="icon" href="{{ content::base_path() }}{{ config.extra.favicon.svg }}" type="image/svg+xml">{% endif %}
 
+    <!-- MANUAL CHANGE !!! -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- MANUAL CHANGE !!! -->
+
     {% if config.extra.daisyui_theme_light or config.extra.daisyui_theme_dark -%}
     <!-- java script for setting theme as saved in local storage (needs to be inline to avoid flicker) -->
     <script>
